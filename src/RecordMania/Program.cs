@@ -14,8 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IRecordService, RecordService>();
 builder.Services.AddDbContext<RecordManiaDbContext>(options =>
-    options.UseSqlServer("DefaultConnection"));
-
+    options.UseSqlServer(connectionString));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
