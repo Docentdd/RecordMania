@@ -1,6 +1,0 @@
-@RecordMania_HostAddress = http://localhost:5141
-
-GET {{RecordMania_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
