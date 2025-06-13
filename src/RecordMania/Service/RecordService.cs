@@ -38,24 +38,24 @@ public class RecordService : IRecordService
 
     public async Task<Record> AddRecordAsync(RecordRequest request)
     {
-        // Check if Language exists
+       
         var language = await _dbContext.Languages.FindAsync(request.LanguageId);
         if (language == null)
             throw new ArgumentException("Language not found");
 
-        // Check if Student exists
+     
         var student = await _dbContext.Students.FindAsync(request.StudentId);
         if (student == null)
             throw new ArgumentException("Student not found");
 
-        // Handle Task
+      
         TaskS task = null;
 
         if (request.TaskId.HasValue)
         {
             task = await _dbContext.Tasks.FindAsync(request.TaskId.Value);
 
-            // If task ID does not exist but task name and description provided, create new
+            
             if (task == null && !string.IsNullOrEmpty(request.TaskName) && !string.IsNullOrEmpty(request.TaskDescription))
             {
                 task = new TaskS
