@@ -16,8 +16,15 @@ public class RecordsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetRecords(DateTime? createdAfter, int? languageId, int? taskId)
     {
-        var records = await _recordService.GetRecordsAsync(createdAfter, languageId, taskId);
-        return Ok(records);
+        try
+        {
+            var records = await _recordService.GetRecordsAsync(createdAfter, languageId, taskId);
+            return Ok(records);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { Message = "An error occurred while retrieving records.", Error = ex.Message });
+        }
     }
 
     [HttpPost]

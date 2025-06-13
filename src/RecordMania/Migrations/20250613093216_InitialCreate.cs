@@ -12,7 +12,7 @@ namespace RecordMania.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Languages",
+                name: "Language",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -21,11 +21,11 @@ namespace RecordMania.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Languages", x => x.Id);
+                    table.PrimaryKey("PK_Language", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Students",
+                name: "Student",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -36,11 +36,11 @@ namespace RecordMania.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Students", x => x.Id);
+                    table.PrimaryKey("PK_Student", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tasks",
+                name: "Task",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -50,11 +50,11 @@ namespace RecordMania.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tasks", x => x.Id);
+                    table.PrimaryKey("PK_Task", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Records",
+                name: "Record",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -67,40 +67,40 @@ namespace RecordMania.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Records", x => x.Id);
+                    table.PrimaryKey("PK_Record", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Records_Languages_LanguageId",
+                        name: "FK_Record_Language_LanguageId",
                         column: x => x.LanguageId,
-                        principalTable: "Languages",
+                        principalTable: "Language",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Records_Students_StudentId",
+                        name: "FK_Record_Student_StudentId",
                         column: x => x.StudentId,
-                        principalTable: "Students",
+                        principalTable: "Student",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Records_Tasks_TaskId",
+                        name: "FK_Record_Task_TaskId",
                         column: x => x.TaskId,
-                        principalTable: "Tasks",
+                        principalTable: "Task",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Records_LanguageId",
-                table: "Records",
+                name: "IX_Record_LanguageId",
+                table: "Record",
                 column: "LanguageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Records_StudentId",
-                table: "Records",
+                name: "IX_Record_StudentId",
+                table: "Record",
                 column: "StudentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Records_TaskId",
-                table: "Records",
+                name: "IX_Record_TaskId",
+                table: "Record",
                 column: "TaskId");
         }
 
@@ -108,16 +108,16 @@ namespace RecordMania.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Records");
+                name: "Record");
 
             migrationBuilder.DropTable(
-                name: "Languages");
+                name: "Language");
 
             migrationBuilder.DropTable(
-                name: "Students");
+                name: "Student");
 
             migrationBuilder.DropTable(
-                name: "Tasks");
+                name: "Task");
         }
     }
 }

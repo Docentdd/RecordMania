@@ -17,8 +17,7 @@ public class RecordManiaDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        // Configure relationships if not fully handled by conventions/data annotations
+        
         modelBuilder.Entity<Record>()
             .HasOne(r => r.Language)
             .WithMany(l => l.Records)

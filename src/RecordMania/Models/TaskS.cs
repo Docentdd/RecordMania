@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema; // <--- Make sure this is pr
 
 namespace RecordMania.Models;
 
+[Table("Task")]
 public class TaskS
 {
     [Key]

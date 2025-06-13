@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecordMania.Models;
 
+[Table("Language")]
 public class Language
 {
 

@@ -12,7 +12,7 @@ using RecordMania.DAL;
 namespace RecordMania.Migrations
 {
     [DbContext(typeof(RecordManiaDbContext))]
-    [Migration("20250613085249_InitialCreate")]
+    [Migration("20250613093216_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -40,7 +40,7 @@ namespace RecordMania.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Languages");
+                    b.ToTable("Language");
                 });
 
             modelBuilder.Entity("RecordMania.Models.Record", b =>
@@ -74,7 +74,7 @@ namespace RecordMania.Migrations
 
                     b.HasIndex("TaskId");
 
-                    b.ToTable("Records");
+                    b.ToTable("Record");
                 });
 
             modelBuilder.Entity("RecordMania.Models.Student", b =>
@@ -102,7 +102,7 @@ namespace RecordMania.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Student");
                 });
 
             modelBuilder.Entity("RecordMania.Models.TaskS", b =>
@@ -125,7 +125,7 @@ namespace RecordMania.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tasks");
+                    b.ToTable("Task");
                 });
 
             modelBuilder.Entity("RecordMania.Models.Record", b =>
